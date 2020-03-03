@@ -16,6 +16,99 @@ from scipy.io import netcdf
 # TODO:
 #  - add missing nutrients
 #  - add HPLC functype data
+    
+class IndForcing:
+    """
+    initializes and reads individual model forcings, and contains methods for daily interpolation and derivation
+
+    """
+    def __init__(self, forcvar, filepath, k=3, s=None, kind="spline", forctype=None, WOA=False, Lat=47.5,Lon=-15.5,RBB=2.5):
+        # parameters for interpolation
+        self.k = k
+        self.s = s
+        self.kind = kind
+        self.forcingtype = forctype
+        self.forcvar = forcvar
+        if (WOA == False) and (forctype != 'EMPOWER'):
+            self.forcingfile = self.readconcforc(forcvar, filepath)
+        elif forctype == 'EMPOWER':
+            self.forcingfile = self.readEMPOWER(forcvar, filepath)
+        else:
+            self.forcingfile = WOAForcing(Lat, Lon, RBB, forcvar).outForcing
+        self.interpolated = self.dailyinterp(self.forcingfile, self.kind, self.k, self.s)
+        if kind == "spline":
+            self.derivative = self.interpolated.derivative()
+            self.derivative2 = self.interpolated.derivative(n=2)
+
+
+        print(forcvar + ' forcing created')
+    def readEMPOWER(self, varname, filepath):
+        forc_all = pandas.read_csv(filepath)
+        forcing_monthly_median = forc_all.groupby('month').mean()
+        forcing_oneyear = list(forcing_monthly_median[varname])
+        forcing_list = forcing_oneyear * 3
+        return forcing_list
+
+
+    def readconcforc(self, varname, filepath):
+        """ read forcing from csv file and calculate monthly means """
+        forc = pandas.read_csv(filepath)
+        forcing_monthly_median = forc.groupby('month').mean()
+        forcing_oneyear = list(forcing_monthly_median[varname])
+        forcing_list = forcing_oneyear * 3
+        return forcing_list
+
+    def dailyinterp(self, file, kind, k, s):
+        """
+        Method to interpolate from monthly to daily environmental data.
+
+        Parameters
+        -----
+        time: in days
+        kind: the type of interpolation either linear, cubic, spline or piecewise polynomial
+        k: Degree of the smoothing spline
+        s: Positive smoothing factor used to choose the number of knots
+
+        Returns
+        -------
+        The temporally interpolated environmental forcing.
+        """
+        # tmonth = np.linspace(-10.5, 24.473, 12 * 3)
+        dayspermonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+        dpm = dayspermonth * 3
+        dpm_cumsum = np.cumsum(dpm) - np.array(dpm)/2
+        if kind == 'spline':
+            outintp = intrp.UnivariateSpline(dpm_cumsum, file, k=k, s=s)
+            return outintp
+        elif kind == 'PWPoly':
+            outintp = intrp.PchipInterpolator(dpm_cumsum, file)
+            return outintp
+        else:
+            raise('Wrong interpolation type passed to dailyinterp function of IndForcing class')
+
+    def return_interpvalattime(self, time):
+        """
+        Method to return interpolated value of forcing.
+
+        converts time in days to time in months
+        """
+        newt = np.mod(time, 365.) + 365  # *12./365.
+        return self.interpolated(newt)
+
+    def return_derivattime(self, time):
+        """
+        Method to return derivative (slope) of interpolated value of forcing.
+
+        converts time in days to time in months, and the resulting derivative from per month to per day
+        """
+        newt = np.mod(time, 365.) + 365  # * 12. / 365.
+
+        if self.forcingtype == "constantMLD" and self.forcvar == "MLD":
+            # return 0 as derivative for constant MLD, remove mathematical inaccuracy
+            return self.derivative(newt)  # * 0.03
+        else:
+            return self.derivative(newt)  # * 0.03
+
 
 class CARIACOdata:
     """
@@ -270,6 +363,17 @@ class Forcing:
             self.PAR = CARIACOdata('PAR', data='SeaWiFS', time=time, k=5, s=None, kind="spline", forctype=forcingtype, pad=pad, extendstart=extendstart)
             self.verif = CARIACOVerifData(time=time, forctype=forcingtype, pad=pad)
             self.type = 'Box'
+            
+        elif forcingtype == 'EMPOWER':
+            self.MLD = IndForcing('MLD', '../phydra/Forcing/EMPOWER/EMPOWER-forcing-export.csv', k=5, s=100, kind="spline", forctype=forcingtype)
+            self.X21 = IndForcing('depth', '../phydra/Forcing/X21Iso/X21Iso_r1.csv', k=5, s=100, kind="spline",
+                                  forctype=forcingtype)
+            self.NOX = IndForcing('N0', '../phydra/Forcing/EMPOWER/EMPOWER-forcing-export.csv', k=5, s=None, kind="PWPoly", forctype=forcingtype)
+            self.SST = IndForcing('SST', '../phydra/Forcing/EMPOWER/EMPOWER-forcing-export.csv', k=5, s=None, kind="PWPoly", forctype=forcingtype)
+            self.PAR = IndForcing('PAR', '../phydra/Forcing/EMPOWER/EMPOWER-forcing-export.csv', k=5, s=None, kind="spline", forctype=forcingtype)
+            #self.verif = VerifData(Lat=47, Lon=-20, RBB=2.5)
+            self.type = 'MLD'
+
 
         else:
             raise('wrong forcingtype passed to Forcing class')
@@ -417,3 +521,5 @@ class CARIACOVerifData:
 
         #df_days[varname] = df_days[varname].interpolate()
         return df_days
+
+    
