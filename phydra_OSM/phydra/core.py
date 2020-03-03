@@ -51,11 +51,11 @@ class StateVariables:
 class Physics:
     """Composite class handles model forcing, contains forcing and verification data,
     actual forcing & verification is defined in phydra.forcing module"""
-    def __init__(self,params, phsxtype, fxtype, time, pad, extendstart):
+    def __init__(self,params, phsxtype, fxtype, time=None, pad=None, extendstart=None):
         self.parameters = params
         self.type = phsxtype
         if self.type == 'EMPOWER':
-            self.forcing = Forcing('EMPOWER')
+            self.forcing = Forcing('EMPOWER', time, pad, extendstart)
         elif self.type == 'Box':
             self.forcing = Forcing(fxtype, time, pad, extendstart)
             self.BoxDepth = 100
