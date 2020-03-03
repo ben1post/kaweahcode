@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a70b440d-9116-4199-a495-76d7153211e2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/phydra/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/phydra/model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PhytoMFTM/PhytoMFTM/ModelCode.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PhytoMFTM/PhytoMFTM/ModelCode.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PhytoMFTM/Tests/RunModel_SLABcheck01_Scripps.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PhytoMFTM/Tests/RunModel_SLABcheck01_Scripps.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="JupyterTrust" id="51ff1045-69b1-4c2f-bce0-aab5d85a7412" />
+  <component name="ProjectId" id="1XPKuDsmALFknVlXoZtUuib8UHY" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/runs" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/phydra" />
+      <recent name="$PROJECT_DIR$/runs" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/runs" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="plotoutput_aggTS_PFTs" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="phydra_OSM" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/runs" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/runs/plotoutput_aggTS_PFTs.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.plotoutput_aggTS_PFTs" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a70b440d-9116-4199-a495-76d7153211e2" name="Default Changelist" comment="" />
+      <created>1580942509919</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1580942509919</updated>
+      <workItem from="1580942524642" duration="1558000" />
+      <workItem from="1580959973678" duration="3834000" />
+      <workItem from="1581019583069" duration="13627000" />
+      <workItem from="1581047759497" duration="20591000" />
+      <workItem from="1581132594321" duration="3434000" />
+      <workItem from="1581192795465" duration="26999000" />
+      <workItem from="1581358658711" duration="17882000" />
+      <workItem from="1581487632862" duration="3339000" />
+      <workItem from="1581534061625" duration="11974000" />
+      <workItem from="1581565849286" duration="11966000" />
+      <workItem from="1581657564362" duration="8724000" />
+      <workItem from="1581711771881" duration="606000" />
+      <workItem from="1581718559806" duration="3175000" />
+      <workItem from="1582017329658" duration="836000" />
+      <workItem from="1582766319576" duration="19000" />
+      <workItem from="1582830476304" duration="171000" />
+      <workItem from="1583126814197" duration="442000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="980" y="350" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1580942707120">
+      <screen x="0" y="0" width="2560" height="1080" />
+    </state>
+    <state x="980" y="350" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1080@0.0.2560.1080" timestamp="1580942707120" />
+    <state x="408" y="185" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1581136917164">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="408" y="185" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1440.900@0.0.1440.900" timestamp="1581136917164" />
+    <state x="508" y="282" key="FileChooserDialogImpl" timestamp="1581489113136">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="508" y="282" key="FileChooserDialogImpl/0.0.1440.900@0.0.1440.900" timestamp="1581489113136" />
+    <state x="160" y="79" key="SettingsEditor" timestamp="1581489124173">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="160" y="-901" key="SettingsEditor/-309.-1080.1920.1080/0.0.1440.900@-309.-1080.1920.1080" timestamp="1580961212507" />
+    <state x="160" y="79" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1581489124173" />
+  </component>
+</project>
