@@ -9,3 +9,4 @@ phydra_OSM/phydra/PhosphateAboveMLD_WOA_tmld_test01_nc3.nc
 phydra_OSM/phydra/Silicate_WOA_tmld_test02_nc3.nc
 phydra_OSM/phydra/SilicateAboveMLD_WOA_tmld_test02_nc3.nc
 phydra_OSM/phydra/Temp_WOA_tmld_test02_nc3.nc
+xarray-simlab-experiments/ASTroCAT_1y_x100res.nc
