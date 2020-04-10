@@ -32,9 +32,34 @@ class VerifData:
         self.chlaint = self.interplt(self.chla)
         self.N = self.readnutrientaboveMLD('n0')
         self.Nint = self.interplt(self.N)
+        
+        self.carbontotal = self.readKostadinovCarbonSize('C_biomass_total')
+        self.c_microp = self.readKostadinovCarbonSize('C_biomass_microplankton')
+        self.c_nanop = self.readKostadinovCarbonSize('C_biomass_nanoplankton')
+        self.c_picop = self.readKostadinovCarbonSize('C_biomass_picoplankton')
+        
+        self.carbontotal_sd = self.readKostadinovCarbonSize('Composite_standard_deviation_C_biomass_total')
+        self.c_microp_sd = self.readKostadinovCarbonSize('Composite_standard_deviation_C_biomass_microplankton')
+        self.c_nanop_sd = self.readKostadinovCarbonSize('Composite_standard_deviation_C_biomass_nanoplankton')
+        self.c_picop_sd = self.readKostadinovCarbonSize('Composite_standard_deviation_C_biomass_picoplankton')
 
         print('VerifData forcing created')
 
+    def readKostadinovCarbonSize(self,var):
+        ncfile = netcdf.netcdf_file(self.fordir + '/Kostadinov_'+ var + '.nc', 'r')
+        ncfile = netcdf.netcdf_file('../phydra/Kostadinov_'+ var + '.nc', 'r')
+        nclat = ncfile.variables['Latitude'].data.copy()
+        nclon = ncfile.variables['Longitude'].data.copy()
+        ncdat = ncfile.variables[var].data.copy()
+        ncdat[ncdat<0] = np.nan
+        ncfile.close()
+        longrid, latgrid = np.meshgrid(nclon, nclat)
+        selectarea = np.logical_and(longrid <= self.Lon + self.RangeBB, longrid >= self.Lon - self.RangeBB) * \
+                     np.logical_and(latgrid <= self.Lat + self.RangeBB, latgrid >= self.Lat - self.RangeBB)
+        outforcing = list(np.nanmean(ncdat[:, selectarea.T], axis=1))
+        return outforcing
+    
+    
     def readchla(self):
         ncfile = netcdf.netcdf_file(self.fordir + '/ChlAclimatology_MODISaqua_L3_nc3.nc', 'r')
         nclat = ncfile.variables['lat'].data.copy()
@@ -46,6 +71,8 @@ class VerifData:
                      np.logical_and(latgrid <= self.Lat + self.RangeBB, latgrid >= self.Lat - self.RangeBB)
         outforcing = list(np.nanmean(ncdat[:, selectarea], axis=1))
         return outforcing
+
+
 
     def readnutrientaboveMLD(self,var):
         if var == 'n0':
