@@ -47,7 +47,7 @@ class VerifData:
 
     def readKostadinovCarbonSize(self,var):
         ncfile = netcdf.netcdf_file(self.fordir + '/Kostadinov_'+ var + '.nc', 'r')
-        ncfile = netcdf.netcdf_file('../phydra/Kostadinov_'+ var + '.nc', 'r')
+        #ncfile = netcdf.netcdf_file(self.fordir + '/Kostadinov_'+ var + '.nc', 'r')
         nclat = ncfile.variables['Latitude'].data.copy()
         nclon = ncfile.variables['Longitude'].data.copy()
         ncdat = ncfile.variables[var].data.copy()

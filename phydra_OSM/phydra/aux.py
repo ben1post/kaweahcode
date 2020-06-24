@@ -4,7 +4,7 @@
 """These are helper functions to handle the model parameters"""
 
 def sliceparams(pardict, parprefix):
-    """Function to extract functioanl type parameters from Parameters object,
+    """Function to extract functional type parameters from Parameters object,
     using prefix in key"""
     return {k: v.value for k, v in pardict.items() if k.startswith(parprefix)}
 
