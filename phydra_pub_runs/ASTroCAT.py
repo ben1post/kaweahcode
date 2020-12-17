@@ -96,8 +96,8 @@ for i in range(2,51):
                         })
 
 
-    model_setup = phydra.setup(solver='gekko', model=ASTroCAT,
-                time= np.arange(0,10),  # 365* np.concatenate([np.arange(0,50,0.005),np.arange(50,365*10,.1)],axis=None),  # *365
+    model_setup = phydra.setup(solver='odeint', model=ASTroCAT,
+                time= np.arange(0,365*10),  #  np.concatenate([np.arange(0,50,0.005),np.arange(50,365*10,.1)],axis=None),  # *365
                 input_vars={
                         # State variables
                         'Nutrient':{'var_label':'N','var_init':5.},
