@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-PZ_num = 50
+PZ_num = 500
 
 phyto_init = np.tile(.5/PZ_num, (PZ_num))
 
@@ -57,8 +57,6 @@ import os,sys,inspect
 sys.path.insert(1, os.path.join(sys.path[0], '..'))
 
 import phydra
-
-
 
 from phydra.components.variables import SV, SVArraySize
 
@@ -132,4 +130,4 @@ from xsimlab.monitoring import ProgressBar
 with ProgressBar():
     model_out = model_setup.xsimlab.run(model=ASTroCAT)
 
-#model_out.to_netcdf('5PZ_ASTroCAT_odeint_out_10years_1.nc')
+model_out.to_netcdf('500PZ_ASTroCAT_odeint_out_10years_1.nc')
