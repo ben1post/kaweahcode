@@ -130,4 +130,4 @@ for i in range(2,51):
     with ProgressBar():
         model_out = model_setup.xsimlab.run(model=ASTroCAT)
 
-    model_out.to_netcdf('/onetofifty/ASTroCAT_'+str(i)+'.nc')
+    model_out.to_netcdf('onetofifty/ASTroCAT_'+str(i)+'.nc')
