@@ -25,3 +25,4 @@ phydra_OSM/SizeSpectralSlab/SSS_token_tropical.obj
 phydra_OSM/SizeSpectralSlab/SSS_token_temperate.obj
 phydra_OSM/FIRSTRESULTS_draft/04_Size_slab/SSS_token_tropical.obj
 phydra_OSM/FIRSTRESULTS_draft/04_Size_slab/SSS_token_temperate.obj
+*.pyc
